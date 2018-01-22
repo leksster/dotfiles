@@ -1,0 +1,31 @@
+[user]
+  name = Alex Bykov 
+  email = leksster@gmail.com
+[color]
+  ui = true
+  interactive = true
+  branch = true
+  status = true
+  diff = true
+[alias]
+  a = add -A
+  co = checkout
+  s = status
+  ci = commit
+  br = branch
+  d = diff
+  ds = !git --no-pager diff --stat
+  dc = !git --no-pager diff --name-only --diff-filter=U
+  l = log --graph --decorate --abbrev-commit --pretty=\"format:%C(yellow)%h %C(blue)%ad%C(auto)%d %C(reset)%s %C(green)%aN\"
+[color "branch"]
+  current = yellow
+  local = yellow
+  remote = green
+[color "status"]
+  changed = yellow
+  untracked = red
+  added = green
+[diff]
+  renamelimit = 0
+[pack]
+  threads = 0
