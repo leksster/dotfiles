@@ -1,5 +1,5 @@
 [user]
-  name = Alex Bykov 
+  name = Alex Bykov
   email = leksster@gmail.com
 [color]
   ui = true
@@ -9,14 +9,19 @@
   diff = true
 [alias]
   a = add -A
-  co = checkout
-  s = status
-  ci = commit
+  amend = commit --amend --reuse-message=HEAD
   br = branch
+  co = checkout
+  ci = commit
   d = diff
-  ds = !git --no-pager diff --stat
-  dc = !git --no-pager diff --name-only --diff-filter=U
+  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
   l = log --graph --decorate --abbrev-commit --pretty=\"format:%C(yellow)%h %C(blue)%ad%C(auto)%d %C(reset)%s %C(green)%aN\"
+  s = status
+  serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
+  staaash = stash --all
+  staash = stash --include-untracked
+  standup = !git log --since yesterday --author $(git config user.email) --pretty=short
+  stsh = stash --keep-index
 [color "branch"]
   current = yellow
   local = yellow
