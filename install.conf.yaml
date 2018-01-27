@@ -4,3 +4,4 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.pryrc: pryrc
+    ~/.zshrc: zshrc
