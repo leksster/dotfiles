@@ -1,6 +1,8 @@
 [user]
   name = Alex Bykov
   email = leksster@gmail.com
+[core]
+  editor = vim
 [color]
   ui = true
   interactive = true
