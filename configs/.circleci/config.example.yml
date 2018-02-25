@@ -1,0 +1,105 @@
+version: 2
+jobs:
+   build:
+     working_directory: ~/project_name
+
+     docker:
+       - image: circleci/ruby:2.5-node
+         environment:
+           PGHOST: 127.0.0.1
+           PGUSER: root
+           RAILS_ENV: test
+
+       - image: circleci/postgres:10-alpine
+         environment:
+           POSTGRES_USER: root
+           POSTGRES_DB: circle_test
+           POSTGRES_PASSWORD: ""
+
+       - image: redis:4.0.2-alpine
+
+     environment:
+       - RAILS_ENV: test
+
+     steps:
+       - checkout
+
+       - run:
+           name: Installing dependency for pronto gem
+           command: sudo apt-get install cmake
+
+       - restore_cache:
+           keys:
+             - project_name-{{ checksum "Gemfile.lock" }}
+             - project_name-{{ checksum "client/yarn.lock" }}
+
+       - run:
+           name: Installing gems
+           command: bundle install --path vendor/bundle
+
+       - save_cache:
+           key: project_name-{{ checksum "Gemfile.lock" }}
+           paths:
+             - vendor/bundle
+
+       - run:
+           name: Installing front-end packages
+           command: cd client && yarn install
+
+       - save_cache:
+           key: project_name-{{ checksum "client/yarn.lock" }}
+           paths:
+             - ~/project_name/client/node_modules
+
+       - run:
+           name: Waiting for Postgresql
+           command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+       - run:
+           name: Preparing database config
+           command: cp config/database.sample.yml config/database.yml
+
+       - run:
+           name: Creating database
+           command: bundle exec rails db:create
+
+       - run:
+           name: Loading schema
+           command: bundle exec rails db:schema:load
+
+       - run:
+           name: Running back-end linters
+           command: |
+             pronto run --runner=rails_best_practices scss rails_schema fasterer rubocop brakeman \
+                        --exit-code  -c origin/develop
+
+       - run:
+           name: Running front-end linters
+           command: cd client && yarn eslint
+
+       - run:
+           name: Running back-end tests
+           command: |
+             mkdir /tmp/test-results
+
+             bundle exec rspec --format RspecJunitFormatter \
+               --out /tmp/test-results/rspec.xml \
+               --format progress \
+               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+
+       - run:
+           name: Running front-end tests
+           command: cd client && yarn test:circle
+
+       - store_test_results:
+           path: /tmp/test-results
+
+       - store_artifacts:
+           name: Saving Rspec coverage
+           path: ~/project_name/tmp/coverage
+           destination: /rspec-coverage
+
+       - store_artifacts:
+           name: Saving Jest coverage
+           path: ~/project_name/client/coverage/lcov-report
+           destination: /jest-coverage
