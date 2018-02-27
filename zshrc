@@ -69,6 +69,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.aliases
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 

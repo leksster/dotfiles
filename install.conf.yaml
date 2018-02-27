@@ -2,6 +2,7 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
 - link:
+    ~/.aliases: aliases
     ~/.gitconfig: gitconfig
     ~/.pryrc: pryrc
     ~/.zshrc: zshrc
