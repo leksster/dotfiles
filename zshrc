@@ -66,12 +66,12 @@ plugins=(
   dotenv
   rake
   ruby
+  rvm
 )
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # User configuration
 
