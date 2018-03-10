@@ -71,7 +71,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # User configuration
 
