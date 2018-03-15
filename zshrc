@@ -72,6 +72,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 export PATH="$HOME/.rbenv/bin:$PATH"
+export EDITOR=vim
 eval "$(rbenv init -)"
 
 # User configuration
