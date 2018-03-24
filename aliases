@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-alias rc="bundle exec rails console"
-alias bi="bundle install"

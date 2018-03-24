@@ -2,14 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/leksster/.oh-my-zsh
+export ZSH=/home/leksster/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
+ZSH_THEME="spaceship"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -64,15 +62,17 @@ plugins=(
   git
   bundler
   dotenv
+  rails
   rake
   ruby
   rvm
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
+
 export PATH="$HOME/.rbenv/bin:$PATH"
-export EDITOR=vim
 eval "$(rbenv init -)"
 
 # User configuration
@@ -82,12 +82,8 @@ eval "$(rbenv init -)"
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# Preferred editor for
+export EDITOR=vim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -103,3 +99,5 @@ eval "$(rbenv init -)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+source /home/leksster/www/prodigy_commerce/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
