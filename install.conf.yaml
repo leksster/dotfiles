@@ -1,8 +1,15 @@
+- defaults:
+    link:
+      force: true
 - clean: ['~']
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
 - link:
-    ~/.aliases: aliases
+    ~/.zlogin: prezto/zlogin
+    ~/.zlogout: prezto/zlogout
+    ~/.zpreztorc: prezto/zpreztorc
+    ~/.zprofile: prezto/zprofile
+    ~/.zshenv: prezto/zshenv
     ~/.gitconfig: gitconfig
     ~/.pryrc: pryrc
     ~/.zshrc: zshrc

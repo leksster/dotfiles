@@ -17,8 +17,7 @@
   ci = commit
   d = diff
   go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
-  log = log --graph --decorate --abbrev-commit --pretty=\"format:%C(yellow)%h %C(blue)%ad%C(auto)%d %C(reset)%s %C(green)%aN\"
-  l = !tig
+  l = log --graph --decorate --abbrev-commit --pretty=\"format:%C(yellow)%h %C(blue)%ad%C(auto)%d %C(reset)%s %C(green)%aN\"
   s = status
   serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
   staaash = stash --all
