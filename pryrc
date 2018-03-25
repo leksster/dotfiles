@@ -1,4 +1,4 @@
-Pry.config.editor = 'subl'
+Pry.config.editor = 'vim'
 Pry.config.prompt_name = File.basename(Dir.pwd)
 Pry.config.default_window_size = 10
 
@@ -35,4 +35,3 @@ begin
 rescue LoadError => err
   Pry.config.print = Pry::DEFAULT_PRINT
 end
-
