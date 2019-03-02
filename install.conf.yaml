@@ -13,3 +13,4 @@
     ~/.gitconfig: gitconfig
     ~/.pryrc: pryrc
     ~/.zshrc: zshrc
+    ~/.tmux.conf: tmux.conf
