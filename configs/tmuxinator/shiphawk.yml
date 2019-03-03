@@ -1,0 +1,42 @@
+name: shiphawk
+root: ~/Documents/shiphawk
+
+windows:
+  - shiphawk-dev:
+      pre: cd shiphawk-dev
+      layout: 750d,178x52,0,0{89x52,0,0,3,88x52,90,0[88x26,90,0,4,88x25,90,27,5]}
+      panes:
+        - rails_server:
+          - bundle exec rails s -b 127.0.0.1 -p 3000
+        - logs:
+          - tail -f log/development.log
+        <%- if args[0] == "with_sidekiq" %>
+        - sidekiq:
+          - bundle exec sidekiq -C ./config/sidekiq.yml
+        <%- end %>
+
+  - products:
+      pre: cd products
+      layout: 750d,178x52,0,0{89x52,0,0,3,88x52,90,0[88x26,90,0,4,88x25,90,27,5]}
+      panes:
+        - rails_server:
+          - bundle exec rails s -p 3001 -b 127.0.0.1
+        <%- if args[0] == "with_sidekiq" %>
+        - sidekiq:
+          - bundle exec sidekiq -C ./config/sidekiq.yml
+        <%- end %>
+
+  - authorize:
+      pre: cd authorize
+      layout: 750d,178x52,0,0{89x52,0,0,3,88x52,90,0[88x26,90,0,4,88x25,90,27,5]}
+      panes:
+        - rails_server:
+          - bundle exec rails s -p 3004 -b 127.0.0.1
+        - mongo:
+          - mongod
+
+  - dashboard-mvp:
+        pre: cd dashboard-mvp
+        layout: 750d,178x52,0,0{89x52,0,0,3,88x52,90,0[88x26,90,0,4,88x25,90,27,5]}
+        panes:
+          - yarn open:src
