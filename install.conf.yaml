@@ -14,4 +14,4 @@
     ~/.pryrc: pryrc
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmux.conf
-    ~/alacritty.yml: ~/.config/alacritty/alacritty.yml
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
