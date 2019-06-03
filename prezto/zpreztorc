@@ -36,7 +36,6 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'contrib-prompt' \
   'prompt' \
   'git' \
   'rails' \
@@ -225,5 +224,3 @@ zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
 # zstyle ':prezto:module:utility' safe-ops 'yes'
-
-zstyle ':prezto:module:prompt' theme 'spaceship'
