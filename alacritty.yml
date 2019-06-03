@@ -466,7 +466,6 @@ key_bindings:
 
   - { key: Left,     mods: Alt,     chars: "\x1bb"                           }
   - { key: Right,    mods: Alt,     chars: "\x1bf"                           }
-
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
