@@ -338,6 +338,8 @@ shell:
  program: /usr/local/bin/zsh
  args:
    - --login
+   - -c
+   - tmux
 
 # Windows 10 ConPTY backend (Windows only)
 #
