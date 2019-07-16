@@ -10,6 +10,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Save history for elixir interactive console
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 # Default editor
 export EDITOR=vim
 
