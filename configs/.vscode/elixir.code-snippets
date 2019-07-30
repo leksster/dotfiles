@@ -1,0 +1,9 @@
+{
+	"IEx.pry": {
+		"prefix": "pry",
+		"body": [
+			"require IEx; IEx.pry"
+		],
+		"description": "IEx.pry"
+	}
+}
