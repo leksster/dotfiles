@@ -13,11 +13,6 @@ fi
 # Save history for elixir interactive console
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# Start tmux with default terminal
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
-
 # Default editor
 export EDITOR=vim
 
