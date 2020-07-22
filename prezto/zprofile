@@ -71,6 +71,5 @@ alias bu='bundle update'
 alias bi='bundle install'
 alias be='bundle exec'
 
-# Kubernetes
 alias k=kubectl
 alias sops='docker run --rm mozilla/sops:v3-alpine'
