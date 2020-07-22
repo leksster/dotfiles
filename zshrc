@@ -23,3 +23,9 @@ export EDITOR=vim
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
+
+###-tns-completion-start-###
+if [ -f /Users/leksster/.tnsrc ]; then
+    source /Users/leksster/.tnsrc
+fi
+###-tns-completion-end-###

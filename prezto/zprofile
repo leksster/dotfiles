@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='code'
 export PAGER='less'
 
 #
@@ -70,3 +70,7 @@ fi
 alias bu='bundle update'
 alias bi='bundle install'
 alias be='bundle exec'
+
+# Kubernetes
+alias k=kubectl
+alias sops='docker run --rm mozilla/sops:v3-alpine'
