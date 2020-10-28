@@ -24,6 +24,7 @@
   staash = stash --include-untracked
   standup = !git log --since yesterday --author $(git config user.email) --pretty=short
   stsh = stash --keep-index
+  brd = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 [color "branch"]
   current = yellow
   local = yellow
