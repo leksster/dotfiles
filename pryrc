@@ -1,6 +1,6 @@
 begin
-  require "awesome_print"
-  AwesomePrint.pry!
+  require "amazing_print"
+  AmazingPrint.pry!
 rescue LoadError
 end
 
